@@ -8,23 +8,34 @@ public class Main {
 //        }
 
 
-        int number1 ;
-        int number2 ;
-        char op = '-';  //как организовать ввод Char пользователем?
-        number1 = 10;
-        number2 = 5;
-        if (op == '*') {
-            System.out.println(number1 * number2);
+
+
+//        int number1 ;
+//        int number2 ;
+//        char op = '*';  //как организовать ввод Char пользователем?
+//        number1 = 10;
+//        number2 = 5;
+//        if (op == '*') {
+//            System.out.println("Произведение чисел " + number1 * number2);
+//        }
+//        else if  (op == '-') {
+//            System.out.println("Разница чисел " + (number1 - number2));
+//        }
+//        else if  (op == '+') {
+//            System.out.println("Сложение чисел " + (number1 + number2));
+//        }
+//        else if  (op == '/') {
+//            System.out.println("Деление чисел " + number1 / number2);
+//        }
+//        else {
+//            System.out.println("Вы ввели неверный символ!");
+//        }
+
+
+        int[] array = new int[10];
+        for (int i=0 ; i < array.length; i++) {
+            array[i] = i-1+1;  //c этим возникли вопросы, подогнал по формуле -1 , может есть ещё способ более красивый
+            System.out.println(array[i]);
         }
-        else if  (op == '-') {
-            System.out.println(number1 - number2);
-        }
-        else if  (op == '+') {
-            System.out.println(number1 + number2);
-        }
-        else if  (op == '/') {
-            System.out.println(number1 / number2);
-        }
-            
     }
 }
