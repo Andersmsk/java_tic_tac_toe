@@ -1,43 +1,86 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
-//       for (int i = 1; i < 26; i++) {
-//            System.out.println(i);
-//        }
+        System.out.println("| Start |");
+        char pointX = 'x';
+        char pointO = 'o';
+        char empty = '-';
+        char[][] desk = new char[3][3];
+        boolean winner;
+        boolean tie;
+        boolean lose;
+        boolean cellGood;
+        boolean cellBusy;
 
 
-
-
-//        int number1 ;
-//        int number2 ;
-//        char op = '*';  //как организовать ввод Char пользователем?
-//        number1 = 10;
-//        number2 = 5;
-//        if (op == '*') {
-//            System.out.println("Произведение чисел " + number1 * number2);
-//        }
-//        else if  (op == '-') {
-//            System.out.println("Разница чисел " + (number1 - number2));
-//        }
-//        else if  (op == '+') {
-//            System.out.println("Сложение чисел " + (number1 + number2));
-//        }
-//        else if  (op == '/') {
-//            System.out.println("Деление чисел " + number1 / number2);
-//        }
-//        else {
-//            System.out.println("Вы ввели неверный символ!");
-//        }
-
-
-        int[] array = new int[10];
-
-        for (int i=0 ; i < array.length; i++) {
-            array[i] = i; //вопрос, почему при подстановке i++ Вместо i+1 - ответ выдаётся в виде 0 0 0 0 0; при i+1 "1 2 3 4 5 6 7 8 9"
-            //по факту ведь это одно и тоже можно сказать
-            System.out.println(array[i]);
+        for (int raw = 0; raw < desk.length; raw++) {   //заполняем массив для его последующей замены
+            System.out.println();
+            for (int col = 0; col < desk.length; col++) {
+                desk[raw][col] = empty;
+                System.out.print(desk[raw][col] + " ");
+            }
         }
+        System.out.println();
+
+        int inpX;
+        int inpY;
+        int x = 3;
+        int y = 2;
+
+        do {
+            //вводимые значения пользователя1 для указания клетки
+
+
+            System.out.println("Игрок 1 (X) вводит значения клетки-массива (х,у) от 1 до 3");
+            inpX = x - 1;
+            inpY = y - 1;
+            desk[1][2] = 'x'; ///можно ли записать как pointX ??
+
+        } while (inpX < 0 || inpY < 0 || inpX > 3 || inpY >= 3 || desk[inpY][inpX] != 'x' || desk[inpY][inpX] != 'o');
+/// зацикливает массив видимо так как массив свободный постоянно
+
+        do {
+
+            System.out.println("Игрок 2 (O) вводит значения клетки-массива (х2,у2) от 1 до 3");
+            inpX = x - 1;   //вводимые значения пользователя2 для указания клетки
+            inpY = y - 1;
+            desk[1][1] = 'o';
+
+        } while (inpX < 0 || inpY < 0 || inpX > 2 || inpY > 2 || desk[inpY][inpX] != 'x' || desk[inpY][inpX] != 'o');
+
+
+        for (int i = 0; i < 3; i++) {     ///проверка верхней строки по горизонтали - выявление победителя - ' '
+            if (desk[i][0] == desk[i][1] && desk[i][1] == desk[i][2] && desk[i][0] != '-') {
+                System.out.println("Победитель " + desk[i][0]);
+                break;
+            }
+            if (desk[0][i] == desk[1][i] && desk[1][i] == desk[2][i] && desk[0][i] != '-') {
+                System.out.println("Победитель " + desk[0][i]);
+                break;
+            }
+            if (desk[0][0] == desk[1][i] && desk[1][1] == desk[2][2] && desk[0][0] != '-') {//диагональ
+                System.out.println("Победитель " + desk[0][0]);
+                break;
+            }
+            if (desk[0][2] == desk[1][1] && desk[1][1] == desk[2][0] && desk[2][0] != '-') {
+                System.out.println("Победитель " + desk[0][0]);
+                break;
+            }
+        }
+    }
+
+    //вводимые значения пользователя2 для указания клетки
+
+
+{
+
+        System.out.println();
+
+
+        System.out.println("| end |");
     }
 }
